@@ -62,7 +62,7 @@ jobs:
         reg.exe add HKLM\SOFTWARE\OpenSSL-${Env:OSSL_VERSION}-openssl /v MODULESDIR /t REG_EXPAND_SZ /d TESTOPENSSLDIR /reg:32
         reg.exe query HKLM\SOFTWARE\OpenSSL-${Env:OSSL_VERSION}-openssl /v OPENSSLDIR /reg:32
     - name: download coreinfo
-      uses: suisei-cn/actions-download-file@v1.6.0
+      uses: suisei-cn/actions-download-file@v1.6.1
       with:
         url: "https://download.sysinternals.com/files/Coreinfo.zip"
         target: _build/coreinfo/
@@ -124,7 +124,7 @@ jobs:
         reg.exe add HKLM\SOFTWARE\OpenSSL-${Env:OSSL_VERSION}-openssl /v MODULESDIR /t REG_EXPAND_SZ /d TESTOPENSSLDIR /reg:32
         reg.exe query HKLM\SOFTWARE\OpenSSL-${Env:OSSL_VERSION}-openssl /v OPENSSLDIR /reg:32
     - name: download coreinfo
-      uses: suisei-cn/actions-download-file@v1.6.0
+      uses: suisei-cn/actions-download-file@v1.6.1
       with:
         url: "https://download.sysinternals.com/files/Coreinfo.zip"
         target: _build/coreinfo/
