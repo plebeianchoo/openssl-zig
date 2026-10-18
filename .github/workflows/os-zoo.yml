@@ -35,7 +35,7 @@ jobs:
     steps:
     - name: install packages
       run: apk --no-cache add build-base perl linux-headers ${{ matrix.cc }}
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: config
       run: |
         ./config --strict-warnings --banner=Configured no-shared enable-fips \
@@ -82,7 +82,7 @@ jobs:
     runs-on: ubuntu-latest
     container: ${{ matrix.zoo.image }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: install packages
       run: ${{ matrix.zoo.install }}
     - name: config
@@ -105,7 +105,7 @@ jobs:
         os: [macos-13, macos-14, macos-15]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: checkout fuzz/corpora submodule
       run: git submodule update --init --depth 1 fuzz/corpora
     - name: config
@@ -128,7 +128,7 @@ jobs:
         os: [windows-2022, windows-2025]
     runs-on: ${{ matrix.os }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: checkout fuzz/corpora submodule
       run: git submodule update --init --depth 1 fuzz/corpora
     - uses: ilammy/msvc-dev-cmd@v1
@@ -165,7 +165,7 @@ jobs:
   linux-arm64:
     runs-on: linux-arm64
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: config
       run: ./config --strict-warnings enable-fips enable-ec_nistp_64_gcc_128 enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-trace
     - name: config dump
@@ -180,7 +180,7 @@ jobs:
   linux-ppc64le:
     runs-on: linux-ppc64le
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: config
       run: ./config --strict-warnings enable-fips enable-ec_nistp_64_gcc_128 enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-trace
     - name: config dump
@@ -197,7 +197,7 @@ jobs:
   linux-s390x:
     runs-on: linux-s390x
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: config
       run: ./config --strict-warnings -Wno-stringop-overflow enable-fips enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-trace
     - name: config dump
@@ -214,7 +214,7 @@ jobs:
   linux-riscv64:
     runs-on: linux-riscv64
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: config
       run: ./config enable-fips enable-ec_nistp_64_gcc_128 enable-md2 enable-rc5 enable-ssl3 enable-ssl3-method enable-trace
     - name: config dump
@@ -231,7 +231,7 @@ jobs:
   freebsd-x86_64:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v7
     - name: config
       uses: cross-platform-actions/action@v0.26.0
       with:
